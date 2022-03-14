@@ -1,24 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Exchange Rate-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ExchangeRateViewController" title="Exchange Rate" id="BYZ-38-t0r" customClass="ExchangeRateViewController" customModule="ExchangeRates" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddO-nQ-cvB" userLabel="Main View">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lPe-Er-AlD" userLabel="Date Picker View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rnM-3g-Otc">
+                                                <rect key="frame" x="16" y="4" width="382" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="C6P-NU-27v"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" systemColor="systemRedColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="rnM-3g-Otc" firstAttribute="leading" secondItem="lPe-Er-AlD" secondAttribute="leading" constant="16" id="efG-Gm-zcN"/>
+                                            <constraint firstAttribute="trailing" secondItem="rnM-3g-Otc" secondAttribute="trailing" constant="16" id="fIH-Tg-86e"/>
+                                            <constraint firstItem="rnM-3g-Otc" firstAttribute="top" secondItem="lPe-Er-AlD" secondAttribute="top" constant="4" id="m7W-R7-mq0"/>
+                                            <constraint firstAttribute="bottom" secondItem="rnM-3g-Otc" secondAttribute="bottom" constant="4" id="xvf-jD-2lE"/>
+                                        </constraints>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pNy-Mu-MZw">
+                                        <rect key="frame" x="0.0" y="52" width="414" height="766"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="eA8-DW-iFB"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="Dwt-95-xjO"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="pNy-Mu-MZw" firstAttribute="top" secondItem="lPe-Er-AlD" secondAttribute="bottom" id="6VY-ZD-v0l"/>
+                                    <constraint firstItem="pNy-Mu-MZw" firstAttribute="top" secondItem="lPe-Er-AlD" secondAttribute="bottom" id="Blw-ut-CaQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="pNy-Mu-MZw" secondAttribute="trailing" id="CF1-GA-r4C"/>
+                                    <constraint firstAttribute="bottom" secondItem="pNy-Mu-MZw" secondAttribute="bottom" id="IOo-9y-2Ra"/>
+                                    <constraint firstItem="lPe-Er-AlD" firstAttribute="top" secondItem="ddO-nQ-cvB" secondAttribute="top" id="cN4-RM-Yrh"/>
+                                    <constraint firstAttribute="trailing" secondItem="lPe-Er-AlD" secondAttribute="trailing" id="ljH-4t-SPn"/>
+                                    <constraint firstItem="lPe-Er-AlD" firstAttribute="leading" secondItem="ddO-nQ-cvB" secondAttribute="leading" id="qMh-oa-MFI"/>
+                                    <constraint firstItem="pNy-Mu-MZw" firstAttribute="leading" secondItem="ddO-nQ-cvB" secondAttribute="leading" id="sft-Tz-4JM"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ddO-nQ-cvB" secondAttribute="bottom" id="UlF-0p-ZZ0"/>
+                            <constraint firstItem="ddO-nQ-cvB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VEW-TU-2a4"/>
+                            <constraint firstAttribute="trailing" secondItem="ddO-nQ-cvB" secondAttribute="trailing" id="fNp-us-IyW"/>
+                            <constraint firstItem="ddO-nQ-cvB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="uRj-5g-ijS"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Exchange Rate" id="bNX-cC-rLL"/>
+                    <connections>
+                        <outlet property="dateTextField" destination="rnM-3g-Otc" id="06b-Iu-OL5"/>
+                        <outlet property="mainView" destination="ddO-nQ-cvB" id="kZ6-iM-1Um"/>
+                        <outlet property="tableView" destination="pNy-Mu-MZw" id="8Sx-qU-m6G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="944.92753623188412" y="83.705357142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

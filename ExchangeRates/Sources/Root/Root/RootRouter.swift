@@ -13,11 +13,16 @@ final class RootRouter: BaseRouter {
     
     weak var presenter: RootRouterPresenterOutputProtocol?
     
+    fileprivate lazy var exchangeRateWireframe = { ExchangeRateWireframe() }()
+    
 }
 
 extension RootRouter: RootRouterPresenterInputProtocol {
     
     // MARK: - Present
+    func presentMainController(_ parent: UIViewController) {
+        self.exchangeRateWireframe.embeddedIn(parent)
+    }
     
     // MARK: - Dismiss
     

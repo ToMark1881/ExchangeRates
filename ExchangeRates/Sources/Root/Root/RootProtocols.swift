@@ -19,6 +19,8 @@ protocol RootViewPresenterInputProtocol: BaseViewControllerProtocol {
 protocol RootViewPresenterOutputProtocol: AnyObject {
     
     var view: RootViewPresenterInputProtocol? { get set }
+    
+    func presentMainController()
         
 }
 
@@ -39,6 +41,8 @@ protocol RootInteractorPresenterOutputProtocol: AnyObject {
 protocol RootRouterPresenterInputProtocol: AnyObject {
     
     var presenter: RootRouterPresenterOutputProtocol? { get set }
+    
+    func presentMainController(_ parent: UIViewController)
     
 }
 

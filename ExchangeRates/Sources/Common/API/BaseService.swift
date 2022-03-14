@@ -8,9 +8,7 @@
 import Foundation
 
 class BaseService {
-    
-    var loadingQueue: [String: Bool] = [String: Bool]()
-    let operations: OperationQueue = OperationQueue()
+
     var parsingQueue: DispatchQueue!
     var networkQueue: DispatchQueue!
 

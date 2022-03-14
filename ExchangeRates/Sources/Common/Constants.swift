@@ -12,6 +12,7 @@ import UIKit
 
 let kAppStoreLink = ""
 let kServerDateTimeFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+let kUserInterfaceDateFormat = "EEEE, d MMMM, yyyy"
 
 struct ScreenSize {
     static let SCREEN_WIDTH = UIScreen.main.bounds.size.width

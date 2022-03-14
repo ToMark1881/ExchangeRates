@@ -18,7 +18,7 @@ class BaseInteractor {
         Logger.shared.log("🗑 \(self)", type: .lifecycle)
     }
     
-    func complete(completed: @escaping () -> Void) { //use this method to avoid gcd crash (ui on non-main thread)
+    func completeOnMainThread(completed: @escaping () -> Void) { //use this method to avoid gcd crash (ui on non-main thread)
         DispatchQueue.main.async {
             completed()
         }

@@ -21,6 +21,11 @@ final class RootPresenter: BasePresenter {
 // MARK: - View - Presenter
 extension RootPresenter: RootViewPresenterOutputProtocol {
     
+    func presentMainController() {
+        guard let viewController = self.view else { return }
+        self.router?.presentMainController(viewController)
+    }
+    
 }
 
 // MARK: - Interactor - Presenter

@@ -14,6 +14,7 @@ final class RootViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.presenter?.presentMainController()
     }
 
 }

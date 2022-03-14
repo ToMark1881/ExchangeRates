@@ -9,6 +9,7 @@ import Foundation
 
 struct APIConstants {
 
-    static let version: String = "/v1"
+    static let version: String = ""
+    static let serverURL: String = "https://api.privatbank.ua"
     
 }

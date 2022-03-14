@@ -16,9 +16,9 @@ protocol BaseViewControllerProtocol where Self: BaseViewController {
 
 class BaseViewController: UIViewController, BaseViewControllerProtocol {
 
-    fileprivate var visible: Bool = false
-    fileprivate lazy var loadingSpinner = { return AlertController.shared.spinner() }()
+    fileprivate var isVisible: Bool = false
     fileprivate var isLoadingSpinnerPresented = false
+    fileprivate lazy var loadingSpinner = { return AlertController.shared.spinner() }()
         
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
@@ -48,18 +48,19 @@ class BaseViewController: UIViewController, BaseViewControllerProtocol {
         if #available(iOS 11.0, *) {
             self.navigationController?.navigationBar.prefersLargeTitles = prefersLargeTitle
         }
-        subscribeToNetworkStateChanges()
-        subscribeToApplicationEvents()
+        self.isVisible = true
+        self.subscribeToNetworkStateChanges()
+        self.subscribeToApplicationEvents()
         Logger.shared.log("viewDidLoad \(self)", type: .lifecycle)
 
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if needToHideNavigationBar {
+        if self.needToHideNavigationBar {
             self.navigationController?.setNavigationBarHidden(true, animated: animated) //hide
         }
-        if needToSubscribeToKeyboardEvents {
+        if self.needToSubscribeToKeyboardEvents {
             self.subscribeToKeyboardChanges()
         }
     }
@@ -67,7 +68,7 @@ class BaseViewController: UIViewController, BaseViewControllerProtocol {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        self.visible = true
+        self.isVisible = true
         
 		Logger.shared.log("viewDidAppear \(self)", type: .lifecycle)
 		
@@ -75,12 +76,12 @@ class BaseViewController: UIViewController, BaseViewControllerProtocol {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        unsubscribeFromNetworkStateChanges()
+        self.unsubscribeFromNetworkStateChanges()
         if needToHideNavigationBar {
             self.navigationController?.setNavigationBarHidden(false, animated: animated) //show
         }
         
-        if needToSubscribeToKeyboardEvents {
+        if self.needToSubscribeToKeyboardEvents {
             self.unsubscribeFromKeyboardChanges()
         }
     }
@@ -88,7 +89,7 @@ class BaseViewController: UIViewController, BaseViewControllerProtocol {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        self.visible = false
+        self.isVisible = false
         
         Logger.shared.log("viewDidDisappear \(self)", type: .lifecycle)
     }
@@ -104,7 +105,7 @@ class BaseViewController: UIViewController, BaseViewControllerProtocol {
     }
 
     deinit {
-        unsubscribeFromApplicationEvents()
+        self.unsubscribeFromApplicationEvents()
         Logger.shared.log("🗑 \(self)", type: .lifecycle)
     }
     
@@ -158,8 +159,7 @@ class BaseViewController: UIViewController, BaseViewControllerProtocol {
     @objc func networkChanged(notification: NSNotification) {
         // Override
         if !Reachability.isConnectedToNetwork() {
-            //if self.noConnectionWireframe.isShowed { return }
-            //self.noConnectionWireframe.presentIn(self)
+            Logger.shared.log("No connection", type: .all)
         }
     }
     
@@ -190,30 +190,11 @@ class BaseViewController: UIViewController, BaseViewControllerProtocol {
         // Override
     }
 
-    // MARK: - Close modal controller
-    func showCloseButton() {
-        let closeBtn = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(BaseViewController.didTapToClose(_:)))
-        closeBtn.tintColor = .white
-
-        self.navigationItem.rightBarButtonItems = [closeBtn]
-    }
-
-    @objc func didTapToClose(_ sender: UIBarButtonItem) {
-        self.view.endEditing(true)
-
-        self.navigationController?.dismiss(animated: true, completion: nil)
-    }
-
     // MARK: - Fileprivate
-
     fileprivate func showError(_ error: NSError) {
-        guard error.code != ErrorsFactory.General.processIsBusy.code else {
-            return
-        }
+        guard error.code != ErrorsFactory.General.processIsBusy.code else { return }
+        if (self.presentedViewController as? UIAlertController) != nil { return }
         
-        if (self.presentedViewController as? UIAlertController) != nil {
-            return
-        }
         if error.code == ErrorsFactory.General.connection.code {
             AlertController.alert("", message: error.localizedDescription, acceptMessage: "OK", acceptBlock: {
             })
@@ -240,7 +221,7 @@ extension BaseViewController: ErrorsHandlerInterface {
         }
         DispatchQueue.main.async {
             self.dismissLoadingSpinner {
-                if (self.isViewLoaded && self.view.window != nil && self.visible) {
+                if (self.isViewLoaded && self.view.window != nil && self.isVisible) {
                     self.showError(error!)
                 }
             }

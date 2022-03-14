@@ -15,6 +15,7 @@ struct ErrorsFactory {
         static let location: NSError = ErrorsFactory.error(with: "Location Services Off", code: 99997)
         static let serverUrlIsMissing: NSError = ErrorsFactory.error(with: "Server URL is missing", code: 99996)
         static let processIsBusy: NSError = ErrorsFactory.error(with: "The process is busy", code: 99995)
+        static let parsingError: NSError = ErrorsFactory.error(with: "Parsing error")
     }
 
     private static func error(with message: String, code: Int = 0) -> NSError {

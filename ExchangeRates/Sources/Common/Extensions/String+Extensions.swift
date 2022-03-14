@@ -270,7 +270,7 @@ extension String {
     }
     
     /// Returns `Date` converted from String with server format
-    func convertToDateFromServer(withFormat format: String = kServerDateTimeFormat) -> Date? {
+    func convertToDate(withFormat format: String = kServerDateTimeFormat) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         return dateFormatter.date(from: self)

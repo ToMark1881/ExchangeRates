@@ -91,3 +91,41 @@ extension UITextField {
     }
     
 }
+
+extension UITextField {
+    
+    func setInputViewDatePicker(target: Any, selector: Selector, minimumDate: Date? = nil, maximumDate: Date? = nil, dateFormat: String? = nil) {
+        // Create a UIDatePicker object and assign to inputView
+        let screenWidth = UIScreen.main.bounds.width
+        let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 216))//1
+        datePicker.datePickerMode = .date //2
+        // iOS 14 and above
+        if #available(iOS 14, *) { // Added condition for iOS 14
+          datePicker.preferredDatePickerStyle = .wheels
+          datePicker.sizeToFit()
+        }
+        self.inputView = datePicker //3
+        datePicker.minimumDate = minimumDate
+        datePicker.maximumDate = maximumDate
+        
+        if let dateFormat = dateFormat, let text = self.text {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = dateFormat
+            if let date = dateFormatter.date(from: text) { datePicker.date = date }
+            // to set datePicker default date, based on current text
+        }
+        
+        // Create a toolbar and assign it to inputAccessoryView
+        let toolBar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: screenWidth, height: 44.0)) //4
+        let flexible = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil) //5
+        let cancel = UIBarButtonItem(title: "Cancel".localized, style: .plain, target: nil, action: #selector(tapCancel)) // 6
+        let barButton = UIBarButtonItem(title: "Done".localized, style: .plain, target: target, action: selector) //7
+        toolBar.setItems([cancel, flexible, barButton], animated: false) //8
+        self.inputAccessoryView = toolBar //9
+    }
+    
+    @objc func tapCancel() {
+        self.resignFirstResponder()
+    }
+    
+}
