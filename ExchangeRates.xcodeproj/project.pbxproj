@@ -11,9 +11,6 @@
 		7D60CD4E27DF116000EF0D6D /* Content.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D60CD4C27DF116000EF0D6D /* Content.storyboard */; };
 		7D60CD5027DF116100EF0D6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D60CD4F27DF116100EF0D6D /* Assets.xcassets */; };
 		7D60CD5327DF116100EF0D6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D60CD5127DF116100EF0D6D /* LaunchScreen.storyboard */; };
-		7D60CD5E27DF116100EF0D6D /* ExchangeRatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D60CD5D27DF116100EF0D6D /* ExchangeRatesTests.swift */; };
-		7D60CD6827DF116100EF0D6D /* ExchangeRatesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D60CD6727DF116100EF0D6D /* ExchangeRatesUITests.swift */; };
-		7D60CD6A27DF116100EF0D6D /* ExchangeRatesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D60CD6927DF116100EF0D6D /* ExchangeRatesUITestsLaunchTests.swift */; };
 		7D60CD7727DF11CB00EF0D6D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D60CD7627DF11CB00EF0D6D /* main.swift */; };
 		7D60CD7D27DF12C900EF0D6D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D60CD7C27DF12C900EF0D6D /* Logger.swift */; };
 		7D60CD8927DF13D900EF0D6D /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D60CD8427DF13D900EF0D6D /* BaseRouter.swift */; };
@@ -106,10 +103,7 @@
 		7D60CD5227DF116100EF0D6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D60CD5427DF116100EF0D6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D60CD5927DF116100EF0D6D /* ExchangeRatesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExchangeRatesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7D60CD5D27DF116100EF0D6D /* ExchangeRatesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesTests.swift; sourceTree = "<group>"; };
 		7D60CD6327DF116100EF0D6D /* ExchangeRatesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExchangeRatesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7D60CD6727DF116100EF0D6D /* ExchangeRatesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesUITests.swift; sourceTree = "<group>"; };
-		7D60CD6927DF116100EF0D6D /* ExchangeRatesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7D60CD7627DF11CB00EF0D6D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		7D60CD7C27DF12C900EF0D6D /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		7D60CD8427DF13D900EF0D6D /* BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
@@ -217,8 +211,6 @@
 			isa = PBXGroup;
 			children = (
 				7D60CD4527DF116000EF0D6D /* ExchangeRates */,
-				7D60CD5C27DF116100EF0D6D /* ExchangeRatesTests */,
-				7D60CD6627DF116100EF0D6D /* ExchangeRatesUITests */,
 				7D60CD4427DF116000EF0D6D /* Products */,
 				A4B33ECBF539ACB7A1FB716F /* Pods */,
 				3CB349A3B26F374972D68CC6 /* Frameworks */,
@@ -245,23 +237,6 @@
 				7D60CD7A27DF125A00EF0D6D /* Supporting Files */,
 			);
 			path = ExchangeRates;
-			sourceTree = "<group>";
-		};
-		7D60CD5C27DF116100EF0D6D /* ExchangeRatesTests */ = {
-			isa = PBXGroup;
-			children = (
-				7D60CD5D27DF116100EF0D6D /* ExchangeRatesTests.swift */,
-			);
-			path = ExchangeRatesTests;
-			sourceTree = "<group>";
-		};
-		7D60CD6627DF116100EF0D6D /* ExchangeRatesUITests */ = {
-			isa = PBXGroup;
-			children = (
-				7D60CD6727DF116100EF0D6D /* ExchangeRatesUITests.swift */,
-				7D60CD6927DF116100EF0D6D /* ExchangeRatesUITestsLaunchTests.swift */,
-			);
-			path = ExchangeRatesUITests;
 			sourceTree = "<group>";
 		};
 		7D60CD7827DF123F00EF0D6D /* Assets */ = {
@@ -814,7 +789,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D60CD5E27DF116100EF0D6D /* ExchangeRatesTests.swift in Sources */,
 				7DC0FEBE27DF485E00F55F79 /* ExchangeRateTestCase.swift in Sources */,
 				7DBE72E627DF23EA00824A21 /* RootTestCase.swift in Sources */,
 			);
@@ -824,8 +798,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D60CD6827DF116100EF0D6D /* ExchangeRatesUITests.swift in Sources */,
-				7D60CD6A27DF116100EF0D6D /* ExchangeRatesUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

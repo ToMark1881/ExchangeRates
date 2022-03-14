@@ -54,7 +54,6 @@ protocol ExchangeRateRouterPresenterInputProtocol: AnyObject {
     
     var presenter: ExchangeRateRouterPresenterOutputProtocol? { get set }
     
-    
 }
 
 protocol ExchangeRateRouterPresenterOutputProtocol: AnyObject {
