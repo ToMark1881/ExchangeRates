@@ -74,6 +74,14 @@ extension ExchangeRateViewController: ExchangeRateViewPresenterInputProtocol {
 
 extension ExchangeRateViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.exchangeList?.baseCurrencyTitle
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.exchangeList?.exchangeRateObjects.count ?? 0
     }

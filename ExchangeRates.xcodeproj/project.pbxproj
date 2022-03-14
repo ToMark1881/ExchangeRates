@@ -49,7 +49,6 @@
 		7DBE72EF27DF247600824A21 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBE72EE27DF247600824A21 /* UIView+Extensions.swift */; };
 		7DBE72F127DF24A300824A21 /* BounceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBE72F027DF24A300824A21 /* BounceButton.swift */; };
 		7DBE72F327DF24D100824A21 /* TapticEngineGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBE72F227DF24D100824A21 /* TapticEngineGenerator.swift */; };
-		7DBE72F527DF250800824A21 /* AppTrackingPrivacyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBE72F427DF250800824A21 /* AppTrackingPrivacyService.swift */; };
 		7DBE72F727DF263600824A21 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBE72F627DF263600824A21 /* String+Extensions.swift */; };
 		7DBE72F927DF268300824A21 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBE72F827DF268300824A21 /* APIConstants.swift */; };
 		7DBE72FB27DF271100824A21 /* Sequence+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBE72FA27DF271100824A21 /* Sequence+Extensions.swift */; };
@@ -142,7 +141,6 @@
 		7DBE72EE27DF247600824A21 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		7DBE72F027DF24A300824A21 /* BounceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BounceButton.swift; sourceTree = "<group>"; };
 		7DBE72F227DF24D100824A21 /* TapticEngineGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapticEngineGenerator.swift; sourceTree = "<group>"; };
-		7DBE72F427DF250800824A21 /* AppTrackingPrivacyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTrackingPrivacyService.swift; sourceTree = "<group>"; };
 		7DBE72F627DF263600824A21 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		7DBE72F827DF268300824A21 /* APIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		7DBE72FA27DF271100824A21 /* Sequence+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+Extensions.swift"; sourceTree = "<group>"; };
@@ -328,7 +326,6 @@
 		7D60CD8327DF13A500EF0D6D /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				7DBE72F427DF250800824A21 /* AppTrackingPrivacyService.swift */,
 				7DBE72FC27DF279600824A21 /* Constants.swift */,
 				7D60CD8E27DF13DF00EF0D6D /* Base Classes */,
 				7D60CD9027DF14B700EF0D6D /* API */,
@@ -770,7 +767,6 @@
 				7DBE730027DF282C00824A21 /* UINavigationController+Extensions.swift in Sources */,
 				7DBE72DD27DF227A00824A21 /* StatesViewsHandler.swift in Sources */,
 				7DC0FEB827DF47EE00F55F79 /* ExchangeRateRouter.swift in Sources */,
-				7DBE72F527DF250800824A21 /* AppTrackingPrivacyService.swift in Sources */,
 				7D60CD9427DF14CE00EF0D6D /* BaseAPIService.swift in Sources */,
 				7DBE72F127DF24A300824A21 /* BounceButton.swift in Sources */,
 				7D60CD7D27DF12C900EF0D6D /* Logger.swift in Sources */,

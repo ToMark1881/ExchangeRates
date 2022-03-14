@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -11,13 +12,13 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ReloadContentView" customModule="ExchangeRates" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="420" height="187"/>
+            <rect key="frame" x="0.0" y="0.0" width="420" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghk-r8-J63">
-                    <rect key="frame" x="20" y="16" width="380" height="130"/>
+                    <rect key="frame" x="20" y="85" width="380" height="130"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Під час завантаження даних сталася помилка" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UuO-pE-Y0d">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An error occurred while loading the data" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UuO-pE-Y0d">
                             <rect key="frame" x="20" y="16" width="340" height="26"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="26" id="VY7-Hn-qYh"/>
@@ -26,18 +27,23 @@
                             <color key="textColor" systemColor="secondaryLabelColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1M-Pq-fWC" customClass="BigRoundedButton" customModule="ExchangeRates" customModuleProvider="target">
+                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1M-Pq-fWC" customClass="BigBounceButton" customModule="ExchangeRates" customModuleProvider="target">
                             <rect key="frame" x="20" y="58" width="340" height="56"/>
                             <color key="backgroundColor" systemColor="systemRedColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="56" id="p7U-0G-YJs"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
-                            <state key="normal" title="Спробувати ще раз">
+                            <state key="normal" title="Try again">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="tapOnRetryButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="tTc-sS-E5j"/>
                             </connections>
@@ -73,10 +79,12 @@
             <viewLayoutGuide key="safeArea" id="M2X-zn-4Xu"/>
             <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="ghk-r8-J63" firstAttribute="top" secondItem="M2X-zn-4Xu" secondAttribute="top" constant="16" id="CYc-Qy-iu0"/>
+                <constraint firstItem="ghk-r8-J63" firstAttribute="top" relation="greaterThanOrEqual" secondItem="M2X-zn-4Xu" secondAttribute="top" constant="16" id="CYc-Qy-iu0"/>
                 <constraint firstAttribute="trailing" secondItem="ghk-r8-J63" secondAttribute="trailing" constant="20" id="Lgg-sx-NWa"/>
                 <constraint firstItem="M2X-zn-4Xu" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ghk-r8-J63" secondAttribute="bottom" constant="16" id="SQI-el-tn3"/>
                 <constraint firstItem="ghk-r8-J63" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Zwe-kg-l1W"/>
+                <constraint firstItem="ghk-r8-J63" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fzu-NI-IvD"/>
+                <constraint firstItem="ghk-r8-J63" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hfb-i7-1Yl"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
@@ -85,7 +93,7 @@
                 <outlet property="button" destination="E1M-Pq-fWC" id="FJ1-QK-mIM"/>
                 <outlet property="label" destination="UuO-pE-Y0d" id="LHX-Tv-VI6"/>
             </connections>
-            <point key="canvasLocation" x="97.599999999999994" y="-120.98950524737631"/>
+            <point key="canvasLocation" x="97.599999999999994" y="-70.164917541229386"/>
         </view>
     </objects>
     <resources>
