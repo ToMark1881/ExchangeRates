@@ -19,10 +19,6 @@ class BaseViewController: UIViewController, BaseViewControllerProtocol {
     fileprivate var isVisible: Bool = false
     fileprivate var isLoadingSpinnerPresented = false
     fileprivate lazy var loadingSpinner = { return AlertController.shared.spinner() }()
-        
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .portrait
-    }
     
     var needToHideNavigationBar: Bool = false
     

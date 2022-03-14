@@ -16,6 +16,7 @@ final class ExchangeRateViewController: BaseStateViewController {
     
     var presenter: ExchangeRateViewPresenterOutputProtocol?
     var exchangeList: ExchangeList?
+    fileprivate var selectedDate: Date?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +28,13 @@ final class ExchangeRateViewController: BaseStateViewController {
     fileprivate func setupTextField() {
         let maximumDate = Date()
         let minimumDate = Calendar.current.date(byAdding: .year, value: -3, to: maximumDate)
+        self.selectedDate = maximumDate
         self.dateTextField.text = maximumDate.stringWithFormat(kUserInterfaceDateFormat)
         self.dateTextField.setInputViewDatePicker(target: self, selector: #selector(didTapOnDoneOnDateTextField), minimumDate: minimumDate, maximumDate: maximumDate, dateFormat: kUserInterfaceDateFormat)
     }
     
     fileprivate func loadRates() {
-        let date = self.dateTextField.text?.convertToDate(withFormat: kUserInterfaceDateFormat) ?? Date()
+        guard let date = self.selectedDate else { return }
         self.presenter?.loadRates(for: date)
         self.changeState(.loading)
     }
@@ -44,6 +46,7 @@ final class ExchangeRateViewController: BaseStateViewController {
         let dateformatter = DateFormatter()
         dateformatter.dateFormat = kUserInterfaceDateFormat
         self.dateTextField.text = dateformatter.string(from: datePicker.date)
+        self.selectedDate = datePicker.date
         self.loadRates()
     }
     
@@ -61,8 +64,12 @@ extension ExchangeRateViewController: ExchangeRateViewPresenterInputProtocol {
     
     func didReceive(list: ExchangeList) {
         self.exchangeList = list
-        self.tableView.reloadData()
-        self.changeState(.content)
+        if list.exchangeRateObjects.count > 0 {
+            self.tableView.reloadData()
+            self.changeState(.content)
+        } else {
+            self.changeState(.nothing)
+        }
     }
     
     func didReceive(error: NSError?) {
